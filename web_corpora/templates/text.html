@@ -1,0 +1,21 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+    {% if title %}{{ title }} - Corpora{% endif %}
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-default">
+        <h1>Reviews corpora</h1>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+    <ul>
+        {% for i in meta %}
+        <li>{{i}}</li>
+        {% endfor %}
+    </ul>
+    </div>
+{% endblock %}

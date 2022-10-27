@@ -1,0 +1,31 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+    {% if title %}{{ title }} - Corpora{% endif %}
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-default">
+        <h1>ПЫРКОЛЫ</h1>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <form method="post" margin=30%>
+    <p>Enter your query:</p>
+    <input type="text" name="query" id="query" class="form-control"><br>
+    {% if query %}<h2>{{query}}</h2>{% endif %}
+    <div class="container">
+        {% if result %}
+            {% for i in result %}
+            <a href="texts={{i[3]}}">
+                <div class="alert alert-info">
+                    {{ i[0] + ' '}}<b>{{ i[1] + ' '}}</b>{{ i[2]}}
+                </div>
+            </a>
+            
+            {% endfor %}
+        {% endif %}
+
+    </div>
+{% endblock %}
